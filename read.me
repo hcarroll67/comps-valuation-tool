@@ -1,0 +1,11 @@
+Relative Valuation (Comps) Tool
+Goal: Benchmark a company's valuation against a set of peers using live market data, and quantify how much of a premium or discount it trades at.
+Idea: Similar companies tend to trade at similar valuation multiples. When one company's multiples are well above or below its peer average, that difference can be a genuine mispricing or a sign that the market is pricing in a variable the multiple doesn't capture (growth outlook, risk, ..).
+Requirements: yfinance, pandas.
+pip install -r requirements.txt
+How it works:
+Fetch data: pull trailing P/E, forward P/E, EV/EBITDA, P/B, and dividend yield for the target company and each peer via Yahoo Finance API.
+Build average: average each metric across peer set (excluding target)
+Compare: calculate target's % premium or discount to peer average on each valuation multiple. Dividend yield compared separately as a plain difference.
+Report: print a clean comps table plus a summary of where the target sits relative to its peers.
+Usage: edit TARGET and PEERS at top of comps_valuation.py
